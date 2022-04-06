@@ -6,6 +6,7 @@ package cripturtle;
 
 import java.awt.Toolkit;
 import java.net.URL;
+import java.util.Random;
 
 /**
  *
@@ -31,22 +32,152 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btNew = new javax.swing.JButton();
+        btOpen = new javax.swing.JButton();
+        btSave = new javax.swing.JButton();
+        btLock = new javax.swing.JButton();
+        btKey = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        taWhiteText = new javax.swing.JTextArea();
+        tfKey = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        taBlackText = new javax.swing.JTextArea();
+        btPassword = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Crypturtle");
+        setResizable(false);
+
+        btNew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/new1.png"))); // NOI18N
+        btNew.setToolTipText("New");
+        btNew.setBorder(null);
+        btNew.setBorderPainted(false);
+        btNew.setContentAreaFilled(false);
+        btNew.setFocusPainted(false);
+        btNew.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/new2.png"))); // NOI18N
+
+        btOpen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/open1.png"))); // NOI18N
+        btOpen.setToolTipText("Open");
+        btOpen.setBorder(null);
+        btOpen.setBorderPainted(false);
+        btOpen.setContentAreaFilled(false);
+        btOpen.setFocusPainted(false);
+        btOpen.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/open2.png"))); // NOI18N
+
+        btSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/save1.png"))); // NOI18N
+        btSave.setToolTipText("Save");
+        btSave.setBorder(null);
+        btSave.setBorderPainted(false);
+        btSave.setContentAreaFilled(false);
+        btSave.setFocusPainted(false);
+        btSave.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/save2.png"))); // NOI18N
+
+        btLock.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/lock1.png"))); // NOI18N
+        btLock.setToolTipText("Encrypt");
+        btLock.setBorder(null);
+        btLock.setBorderPainted(false);
+        btLock.setContentAreaFilled(false);
+        btLock.setFocusPainted(false);
+        btLock.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/lock2.png"))); // NOI18N
+        btLock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btLockActionPerformed(evt);
+            }
+        });
+
+        btKey.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/key1.png"))); // NOI18N
+        btKey.setToolTipText("Decrypt");
+        btKey.setBorder(null);
+        btKey.setBorderPainted(false);
+        btKey.setContentAreaFilled(false);
+        btKey.setFocusPainted(false);
+        btKey.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/key2.png"))); // NOI18N
+
+        taWhiteText.setColumns(20);
+        taWhiteText.setRows(5);
+        jScrollPane1.setViewportView(taWhiteText);
+
+        tfKey.setBackground(new java.awt.Color(0, 102, 102));
+        tfKey.setForeground(new java.awt.Color(255, 255, 255));
+        tfKey.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        tfKey.setToolTipText("Key");
+
+        taBlackText.setBackground(new java.awt.Color(51, 51, 51));
+        taBlackText.setColumns(20);
+        taBlackText.setForeground(new java.awt.Color(255, 255, 255));
+        taBlackText.setRows(5);
+        jScrollPane2.setViewportView(taBlackText);
+
+        btPassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/password1.png"))); // NOI18N
+        btPassword.setToolTipText("Generate new key");
+        btPassword.setBorder(null);
+        btPassword.setBorderPainted(false);
+        btPassword.setContentAreaFilled(false);
+        btPassword.setFocusPainted(false);
+        btPassword.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/password2.png"))); // NOI18N
+        btPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btPasswordActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btNew)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btOpen)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btSave)
+                        .addGap(18, 18, 18)
+                        .addComponent(btLock)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btKey)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tfKey, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btPassword))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btKey, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btLock, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btSave, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btOpen, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btNew, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tfKey)
+                    .addComponent(btPassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPasswordActionPerformed
+        tfKey.setText(""+generateKey());
+    }//GEN-LAST:event_btPasswordActionPerformed
+
+    private void btLockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLockActionPerformed
+        String key = tfKey.getText();
+        if(!key.equals("")){
+            taBlackText.setText(encryptText(key));
+        }
+    }//GEN-LAST:event_btLockActionPerformed
 
     /**
      */
@@ -78,5 +209,39 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btKey;
+    private javax.swing.JButton btLock;
+    private javax.swing.JButton btNew;
+    private javax.swing.JButton btOpen;
+    private javax.swing.JButton btPassword;
+    private javax.swing.JButton btSave;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea taBlackText;
+    private javax.swing.JTextArea taWhiteText;
+    private javax.swing.JTextField tfKey;
     // End of variables declaration//GEN-END:variables
+
+    private String generateKey() {
+        String chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String key = "";
+        Random generator = new Random();
+        for(int i=0;i<=16;i++){
+            key+= chars.charAt(generator.nextInt(chars.length()));
+        }
+        return key;
+    }
+
+    private String encryptText(String key) {
+        String whiteText = taWhiteText.getText();
+        String blackText = "";
+        if(whiteText.equals("")){
+            blackText = "";
+        }else{
+            
+        }
+        
+        return blackText;
+    }
+    
 }
